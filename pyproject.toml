@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "merkle-dag-store"
+version = "1.0.0"
+description = "Local Merkle DAG store with content-addressable block storage"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Shivay Singh", email = "shivaysinghrajputofficial@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries",
+]
+keywords = ["merkle", "dag", "content-addressable", "storage", "blockchain"]
+
+[project.urls]
+Homepage = "https://github.com/Shivay00001/merkle-dag-store"
+Repository = "https://github.com/Shivay00001/merkle-dag-store"
+
+[tool.setuptools]
+py-modules = ["merkle_dag_store"]
