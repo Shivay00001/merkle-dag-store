@@ -9,7 +9,7 @@ import os
 import sqlite3
 import threading
 from dataclasses import dataclass, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Set
 from enum import Enum
@@ -191,7 +191,7 @@ class MerkleDAGStore:
                 os.fsync(f.fileno())
             
             # Update index
-            now = datetime.utcnow().isoformat()
+            now = datetime.now(timezone.utc).isoformat()
             with sqlite3.connect(str(self.db_path)) as conn:
                 conn.execute("""
                     INSERT INTO blocks (cid, size, hash_algo, created_at)
@@ -219,7 +219,7 @@ class MerkleDAGStore:
                 return None
             
             # Update access statistics
-            now = datetime.utcnow().isoformat()
+            now = datetime.now(timezone.utc).isoformat()
             with sqlite3.connect(str(self.db_path)) as conn:
                 conn.execute("""
                     UPDATE blocks 
@@ -302,7 +302,7 @@ class MerkleDAGStore:
             raise ValueError(f"Root block {root_cid} does not exist")
         
         with self.lock:
-            now = datetime.utcnow().isoformat()
+            now = datetime.now(timezone.utc).isoformat()
             metadata_json = json.dumps(metadata or {})
             
             with sqlite3.connect(str(self.db_path)) as conn:
