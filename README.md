@@ -1,5 +1,7 @@
 # Merkle DAG Store
 
+Built by [VisionQuantech](https://visionquantech.com) — AI agents, apps & tools for small businesses.
+
 A local Merkle DAG store with content-addressable block storage in Python. Provides immutable, deterministic, block-addressed object storage with DAG linking, snapshotting, and garbage collection.
 
 ## Features
